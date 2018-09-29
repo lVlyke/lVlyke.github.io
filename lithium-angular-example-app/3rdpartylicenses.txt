@@ -273,7 +273,7 @@ Apache License
  See the License for the specific language governing permissions and
  limitations under the License.
 
-@lithiumjs/angular@2.1.0-beta.0
+@lithiumjs/angular@2.1.0
 MIT
 Copyright (c) 2017 Mychal Thompson
 
