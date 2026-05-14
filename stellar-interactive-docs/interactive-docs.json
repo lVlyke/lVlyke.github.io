@@ -1,0 +1,4049 @@
+{
+    "$schema": "../interactive-docs.schema.json",
+    "appChangeTheme": {
+        "categories": ["app"],
+        "description": "Change app theme",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#app-preferences-modal #app-theme-form-field"
+                ],
+                "messages": ["To change the app theme, open the app settings and select the theme you want to use."],
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "app:showPreferences",
+                            "data": {},
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#app-preferences-modal .close-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ],
+        "static": false
+    },
+    "appPreferences": {
+        "categories": ["app"],
+        "description": "App preferences",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal",
+                "elementSelectors": [
+                    "#app-preferences-modal"
+                ],
+                "messages": [],
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "app:showPreferences",
+                            "data": {},
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "stepId": "step-app-prefs-check-for-updates-startup"
+            },
+            {
+                "stepId": "step-app-prefs-verify-profile-startup"
+            },
+            {
+                "elementSelectors": [
+                    "#app-preferences-modal #plugins-enabled-checkbox"
+                ],
+                "description": "Enable game plugins",
+                "messages": ["Game plugin support is enabled by default."]
+            },
+            {
+                "elementSelectors": [
+                    "#app-preferences-modal #app-theme-form-field"
+                ],
+                "description": "App Theme",
+                "messages": ["Available app theme are listed here."]
+            },
+            {
+                "stepId": "step-app-prefs-profiles-dir"
+            },
+            {
+                "stepId": "step-app-prefs-steam-installation-dir"
+            },
+            {
+                "stepId": "step-app-prefs-default-proton-version"
+            },
+            {
+                "stepId": "step-app-prefs-nxm-urls"
+            },
+            {
+                "stepId": "step-app-prefs-nxm-handling-status"
+            },
+            {
+                "stepId": "step-app-prefs-nexus-api-key"
+            },
+            {
+                "elementSelectors": [
+                    "#app-preferences-modal .save-button"
+                ],
+                "messages": ["When you're finished, click the \"Save\" button to confirm your settings changes."],
+                "static": false
+            }
+        ]
+    },
+    "appCheckForUpdatesStartup": {
+        "categories": ["app"],
+        "description": "Startup update check",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal"
+            },
+            {
+                "stepId": "step-app-prefs-check-for-updates-startup",
+                "elementSelectors": [
+                    "#app-preferences-modal #check-for-updates-checkbox"
+                ],
+                "description": "Check for app updates on startup",
+                "messages": ["You can enable/disable app update checks on startup."]
+            }
+        ],
+        "static": false
+    },
+    "appVerifyProfileStartup": {
+        "categories": ["app"],
+        "description": "Startup profile verification",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal"
+            },
+            {
+                "stepId": "step-app-prefs-verify-profile-startup",
+                "elementSelectors": [
+                    "#app-preferences-modal #verify-profile-checkbox"
+                ],
+                "description": "Verify active profile on app startup",
+                "messages": [
+                    "You can enable/disable profile verification on startup.",
+                    "You can disable this if profile verification is taking too long during startup."
+                ]
+            }
+        ],
+        "static": false
+    },
+    "appProfilesDir": {
+        "categories": ["app"],
+        "description": "App profiles directory",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal"
+            },
+            {
+                "stepId": "step-app-prefs-profiles-dir",
+                "elementSelectors": [
+                    "#app-preferences-modal #profiles-dir-form-field"
+                ],
+                "description": "Profiles Directory",
+                "messages": ["This is the directory where profiles will be saved and loaded from."]
+            }
+        ],
+        "static": false
+    },
+    "appSteamInstallDir": {
+        "categories": ["app"],
+        "description": "Steam installation",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal"
+            },
+            {
+                "stepId": "step-app-prefs-steam-installation-dir",
+                "elementSelectors": [
+                    "#app-preferences-modal #steam-dir-form-field"
+                ],
+                "description": "Steam Installation Directory",
+                "messages": ["The Steam installation folder. This is only required if Steam is installed to a non-standard location."]
+            }
+        ],
+        "static": false
+    },
+    "appDefaultProtonVersion": {
+        "categories": ["app"],
+        "description": "Default Proton version",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal"
+            },
+            {
+                "stepId": "step-app-prefs-default-proton-version",
+                "elementSelectors": [
+                    "#app-preferences-modal #proton-version-select mat-form-field"
+                ],
+                "description": "Default Proton Version",
+                "messages": ["The default Proton version to use when launching games. May be overridden by profile."],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "appNxmLinkHandling": {
+        "categories": ["app", "downloads"],
+        "description": "NXM (Nexus) URLs",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal"
+            },
+            {
+                "stepId": "step-app-prefs-nxm-urls",
+                "elementSelectors": [
+                    "#app-preferences-modal #nxm-link-enable-button"
+                ],
+                "description": "Enable Nexus Mods (NXM) Links",
+                "messages": ["You can enable NXM link handling in Stellar here. If enabled, Stellar will automatically handle mod manager downloads from Nexus Mods."],
+                "optional": true
+            },
+            {
+                "stepId": "step-app-prefs-nxm-handling-status",
+                "elementSelectors": [
+                    "#app-preferences-modal .nxm-link-status-wrapper"
+                ],
+                "description": "NXM link handling status",
+                "messages": ["The current NXM link handling status is displayed here."],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "appNexusUserApiKey": {
+        "categories": ["app", "downloads"],
+        "description": "Nexus Mods User API key",
+        "steps": [
+            {
+                "stepId": "step-open-app-prerences-modal"
+            },
+            {
+                "stepId": "step-app-prefs-nexus-api-key",
+                "elementSelectors": [
+                    "#app-preferences-modal #nexus-api-key-form-field"
+                ],
+                "description": "Nexus Mods User API Key",
+                "messages": [
+                    "You can enter your Nexus Mods API key here. This is required for NXM link handling.",
+                    "Your API key can be found <a target='_blank' class='mat-color-accent' href='https://next.nexusmods.com/settings/api-keys'>here</a>."
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "appNotifications": {
+        "categories": ["app"],
+        "description": "App notifications",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#notifications-menu-button"
+                ],
+                "messages": [
+                    "Active notifications are shown here."
+                ],
+                "allowInvisible": true,
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "appCli": {
+        "categories": ["app"],
+        "description": "Launch from CLI",
+        "steps": [
+            {
+                "messages": [
+                    "<p>You can activate and launch a profile directly from the CLI by using the --launch argument. For example, if you want to activate the profile named \"My Profile\" and launch the game, you can specify the following:</p> <p><span style='font-family:monospace'>stellar-mod-loader.exe --launch \"My Profile\"</span></p>",
+                    "<p>You can also optionally specify the game action to run:</p> <p><span style='font-family:monospace'>stellar-mod-loader.exe --launch \"My Profile\" \"Custom Action Name\"</span></p> <p>This will activate the given profile and invoke the given action (or the currently active action if one isn't specified).</p>"
+                ]
+            }
+        ]
+    },
+    "checkForUpdates": {
+        "categories": ["app"],
+        "description": "Check for app updates",
+        "steps": [
+            {
+                "messages": ["You can check for new app updates by going to <b>File > Check for Updates</b>."]
+            }
+        ]
+    },
+    "helpIntro": {
+        "categories": ["app"],
+        "description": "App interactive help",
+        "steps": [
+            {
+                "messages": [
+                    "You can use the <span style=\"font-size: 1.4em; font-weight: 500; padding: 0 0.15rem\">?</span> icons found throughout the app to get more information on a topic or setting."
+                ]
+            },
+            {
+                "elementSelectors": [
+                    "[app-interactive-docs-tooltip]"
+                ],
+                "messages": [
+                    "Clicking these tooltips will show you guided help and explanations for different parts of the app."
+                ],
+                "optional": true
+            },
+            {
+                "messages": [
+                    "You can view all of the available help topics by clicking <b>Help > Show Topics</b> in the menu bar at the top of the app."
+                ],
+                "enterState": {
+                    "appMessages": [
+                        {
+                            "id": "app:toggleHelpPanel",
+                            "data": { "state": true },
+                            "source": "main"
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "appMessages": [
+                        {
+                            "id": "app:toggleHelpPanel",
+                            "data": { "state": false },
+                            "source": "main"
+                        }
+                    ]
+                }
+            }
+        ],
+        "static": false
+    },
+    "creatingGameDefs": {
+        "categories": ["games"],
+        "description": "Creating game definitions",
+        "steps": [
+            {
+                "messages": [
+                    "If Stellar doesn't have built-in support for a game you want to mod, you can create a custom game definition to add support for it."
+                ]
+            },
+            {
+                "stepId": "game-management-init",
+                "elementSelectors": [
+                    "#game-manager-modal"
+                ],
+                "messages": [],
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "app:showManageGames",
+                            "data": {},
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "description": "Manage Games",
+                "messages": [
+                    "You can create game definitions and view existing game definitions by going to <b>File > Manage Games</b>.",
+                    "Existing custom game definitions can also be imported or exported, allowing you to share game definitions with others or submit them for official inclusion into Stellar."
+                ],
+                "static": {
+                    "screenshot": "game-manager-1.png"
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-id-select[empty]"
+                ],
+                "messages": ["You can select a game to view here."],
+                "optional": true,
+                "static": false
+            },
+            {
+                "stepId": "step-new-game-def",
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#game-manager-modal #game-id-select[empty]",
+                            "waitOn": false
+                        }
+                    ],
+                    "elementEvents": [
+                        {
+                            "selector": "#game-manager-modal #game-mgmt-menu-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "static": false
+            },
+            {
+                "stepId": "step-import-game-def",
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#game-manager-modal #game-id-select[empty]",
+                            "waitOn": false
+                        }
+                    ]
+                },
+                "static": false
+            },
+            {
+                "stepId": "step-export-game-def",
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#game-manager-modal #game-id-select[empty]",
+                            "waitOn": false
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#game-manager-modal #game-mgmt-menu-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #active-game-form"
+                ],
+                "messages": [],
+                "initState": {
+                    "prerequisiteElementStates": [
+                        { "selector": "&" }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-id-form-field"
+                ],
+                "description": "Game ID",
+                "messages": ["The ID of the game. It must be unique."]
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-title-form-field"
+                ],
+                "description": "Title",
+                "messages": ["The title of the game."]
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-bkg-color-form-field"
+                ],
+                "description": "Background Color",
+                "messages": ["The background color for the game. Can be either a hex color or <span style='font-family:monospace'>rgb()</span> definition."]
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-fg-color-form-field"
+                ],
+                "description": "Foreground Color",
+                "messages": ["The foreground color for the game. Can be either a hex color or <span style='font-family:monospace'>rgb()</span> definition."]
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-installations-accordion"
+                ],
+                "description": "Game Installations",
+                "messages": ["The game installation paths for this game. These are typically the default installation folders for the game on supported platforms."],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #add-game-installation-button"
+                ],
+                "messages": ["Click here to add a new game installation."],
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-panel > mat-expansion-panel-header"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 750
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-settings .game-installation-form"
+                ],
+                "messages": [],
+                "initState": {
+                    "prerequisiteElementStates": [
+                        { "selector": "&" }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-settings .game-installation-root-dir"
+                ],
+                "description": "Game Root Directory",
+                "messages": ["The root directory for the game installation."],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-settings .game-installation-mod-dir"
+                ],
+                "description": "Game Data Directory",
+                "messages": [
+                    "The data directory for the game installation.",
+                    "This may sometimes be the same as the root directory (in which case you can enter the value <span style='font-family:monospace'>.</span>)."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-settings .game-installation-config-dir"
+                ],
+                "description": "Game Config Files Directory",
+                "messages": ["The directory where the game's config files are located, if applicable. The location will vary by game."],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-settings .game-installation-saves-dir"
+                ],
+                "description": "Game Saves Directory",
+                "messages": ["The directory where game save files are located. The location will vary by game."],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-settings .game-installation-plugin-list-path"
+                ],
+                "description": "Game Plugin List Path",
+                "messages": ["The location where the plugin list should be saved, if applicable."],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-settings .game-install-steam-ids-form-field"
+                ],
+                "description": "Steam IDs",
+                "messages": [
+                    "The Steam IDs associated with this installation of the game, if any.",
+                    "There may be more than one Steam ID associated with this game installation (i.e. GotY editions)."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .game-installation-panel > mat-expansion-panel-header"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 750
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-multiple-data-roots-checkbox"
+                ],
+                "description": "Multiple Mod Data Roots",
+                "messages": [
+                    "Whether or not the game uses multiple subdirectories for mod data.",
+                    "This is often required for Unreal Engine games."
+                ]
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-binaries-form-field"
+                ],
+                "description": "Game Binaries",
+                "messages": [
+                    "The list of game binaries associated with this game.",
+                    "This list should also include binaries of known tools like editors and script extenders."
+                ]
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-save-formats-form-field"
+                ],
+                "description": "Save Formats",
+                "messages": [
+                    "The list of save file formats associated with this game."
+                ]
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-plugin-formats-form-field"
+                ],
+                "description": "Plugin Formats",
+                "messages": [
+                    "The list of plugin formats associated with this game, if any."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-require-external-plugins-checkbox"
+                ],
+                "description": "Require External Plugins",
+                "messages": [
+                    "Whether or not external plugin file management is required for this game."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-add-plugin-data-dir-button"
+                ],
+                "description": "Plugin Data Directory",
+                "messages": [
+                    "Click here to add a plugin data directory, if applicable for this game.",
+                    "This directory defines where plugin files are located. This path is relative to the game's Data directory."
+                ],
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-plugin-data-dir-form-field"
+                ],
+                "description": "Plugin Data Directory",
+                "messages": [
+                    "The directory where plugin files are located. This path is relative to the game's Data directory."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-add-plugin-list-type-button"
+                ],
+                "description": "Plugin List Type",
+                "messages": [
+                    "Add a plugin list for the game, if applicable."
+                ],
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-plugin-list-type-form-field"
+                ],
+                "description": "Plugin List Type",
+                "messages": [
+                    "The type of plugin list for the game."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-pinned-plugins-form-field"
+                ],
+                "description": "Pinned Plugins",
+                "messages": [
+                    "This list should contain any plugin files that are required to be enabled for the game, if applicable."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-config-files-form-field"
+                ],
+                "description": "Game Config Files",
+                "messages": [
+                    "The list of config files for this game, if applicable."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-script-extenders-form-field"
+                ],
+                "description": "Script Extenders",
+                "messages": [
+                    "List any known script extenders for this game, if applicable."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-script-extenders-form-field .extender-name-form-field"
+                ],
+                "description": "Script Extender Name",
+                "messages": [
+                    "The name of the script extender."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-script-extenders-form-field .extender-binaries-form-field"
+                ],
+                "description": "Script Extender Binaries",
+                "messages": [
+                    "The names/paths of any binaries associated with the script extender."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal #game-script-extenders-form-field .extender-mod-paths-form-field"
+                ],
+                "description": "Script Extender Mod Paths",
+                "messages": [
+                    "List any special directories that are used by mods associated with this script extender."
+                ],
+                "optional": true
+            },
+            {
+                "messages": [
+                    "If you want to see specific examples for any of these values, look through the built-in game definitions."
+                ],
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#game-manager-modal #active-game-form[custom]",
+                            "waitOn": false
+                        }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-manager-modal .save-button"
+                ],
+                "messages": [
+                    "<p>Once you are finished, click the \"Save\" button to confirm your changes.</p><p>The button will be disabled if there are any errors in your game definition.</p>",
+                    "Once saved, you can create a new profile using the new game definition."
+                ],
+                "optional": true,
+                "enterState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#game-manager-modal #active-game-form[custom]",
+                            "waitOn": false
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "newGameDef": {
+        "categories": ["games"],
+        "description": "New game definition",
+        "steps": [
+            {
+                "stepId": "game-management-init"
+            },
+            {
+                "stepId": "step-new-game-def",
+                "elementSelectors": [
+                    "#game-mgmt-menu #add-game-button",
+                    "#game-manager-modal #game-mgmt-menu-button"
+                ],
+                "messages": [
+                    "To add a game, click the gear icon in Manage Games and select \"Add New Game\".",
+                    "This allows you to use Stellar for other games that aren't officially supported."
+                ],
+                "optional": true,
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#game-manager-modal #game-mgmt-menu-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "exportGameDef": {
+        "categories": ["games"],
+        "description": "Export game definition",
+        "steps": [
+            {
+                "stepId": "game-management-init"
+            },
+            {
+                "stepId": "step-export-game-def",
+                "elementSelectors": [
+                    "#game-mgmt-menu #export-game-button",
+                    "#game-manager-modal #game-mgmt-menu-button"
+                ],
+                "messages": [
+                    "To export a game, click the gear icon in Manage Games and select \"Export Game\". This allows you to export to a file and share your custom game definitions.",
+                    "<p>Once you have tested your game definition to make sure everything works as expected, feel free to <a class='mat-color-accent' target='_blank' href='https://github.com/lVlyke/stellar-mod-loader/issues'>open an issue</a> and submit your exported game definition file for inclusion directly into Stellar.</p><p>If approved, your game definition will be added as a built-in game in a future release.</p>"
+                ],
+                "optional": true,
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#game-manager-modal #game-mgmt-menu-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "importGameDef": {
+        "categories": ["games"],
+        "description": "Import game definition",
+        "steps": [
+            {
+                "stepId": "game-management-init"
+            },
+            {
+                "stepId": "step-import-game-def",
+                "elementSelectors": [
+                    "#game-mgmt-menu #import-game-button",
+                    "#game-manager-modal #game-mgmt-menu-button"
+                ],
+                "messages": [
+                    "To import an existing custom game definition, click the gear icon in Manage Games and select \"Import Game\"."
+                ],
+                "optional": true,
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#game-manager-modal #game-mgmt-menu-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "createProfile": {
+        "categories": ["profile"],
+        "description": "Creating a profile",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal"
+                ],
+                "messages": [],
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "app:newProfile",
+                            "data": {},
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal[create-mode] #profile-game-id-form-field"
+                ],
+                "messages": ["First, select the game you want to create this profile for."],
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal[create-mode] #profile-name-form-field"
+                ],
+                "description": "Profile Name",
+                "messages": ["Enter a name for your profile."],
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        { "selector": "#profile-settings-modal #profile-name-form-field" }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-base-profile-form-field",
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-finder-form-field"
+                ],
+                "description": "Game Installation Path",
+                "messages": ["Navigate to the game's installation directory using the folder icon."],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-list-form-field"
+                ],
+                "description": "Detected Game Installations",
+                "messages": ["Game installations that have been automatically detected are listed here."],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-list-edit-button",
+                    "#profile-settings-modal #profile-game-installation-settings-panel"
+                ],
+                "description": "Game Installation Settings",
+                "messages": ["You can edit the game installation settings here."],
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#profile-settings-modal #profile-game-installation-settings-panel[enabled]"
+                        }
+                    ]
+                },
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-settings-modal #profile-game-installation-settings-panel > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel[custom]:not(.mat-expanded)"
+                ],
+                "description": "Game Installation Settings",
+                "messages": ["You can edit the game installation settings here."],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "& > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                },
+                "static": false
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-root-dir",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-mod-dir",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-config-dir",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-saves-dir",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-plugin-list-path",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-steam-ids",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-panel-close",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel"
+                ],
+                "messages": [],
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "& > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal .profile-fields"
+                ],
+                "messages": [],
+                "initState": {
+                    "prerequisiteElementStates": [
+                        { "selector": "&" }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-profile-proton-settings-panel",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-proton-settings-version",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-proton-settings-prefix-dir",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-proton-settings-panel-close",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-proton-settings-panel"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&.mat-expanded > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                }
+            },
+            {
+                "stepId": "step-profile-path-overrides-panel",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-root",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-mods",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-saves",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-config",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-backups",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-panel-close",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-overrides-panel.mat-expanded"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "& > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                }
+            },
+            {
+                "stepId": "step-profile-link-mode",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-manage-config-files",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-manage-save-files",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-case-normalization",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-archive-invalidation",
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal[create-mode] .save-button"
+                ],
+                "messages": ["When you're finished, click the \"Create\" button to create the profile."],
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#profile-settings-modal:not([create-mode]) .save-button"
+                ],
+                "messages": ["When you're finished, click the \"Save\" button to save your changes."],
+                "optional": true,
+                "static": false
+            }
+        ]
+    },
+    "baseProfile": {
+        "categories": ["profile"],
+        "description": "Base profiles",
+        "steps": [
+            {
+                "stepId": "step-base-profile-info",
+                "messages": [
+                    "Base profiles are a special kind of profile that can be extended by other profiles.",
+                    "Mods and plugins in a base profile are added and managed as normal, but cannot directly be deployed. Instead, other profiles can extend a base profile and will automatically inherit mods, plugins, and config files from the base profile.",
+                    "This allows for defining a common set of mods that can be used and extended by other profiles.",
+                    "<p>One way this can be useful is for easily deploying a common set of mods between multiple PCs while also allowing for adding mods or config settings that may only be used on certain machines, such as high-res texture packs or specific compatability patches only needed for some devices.</p><p>This can also be used to sync mods between different versions of games, such as Skyrim SE and Skyrim VR.</p>",
+                    "Game directories are not defined for base profiles, allowing extending profiles to point to different game installation locations as needed."
+                ]
+            }
+        ]
+    },
+    "externalProfile": {
+        "categories": ["profile"],
+        "description": "External profiles",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-mgmt-menu",
+                    "#profile-mgmt-menu #profile-mgmt-external-profile-button",
+                    "#profile-mgmt-button"
+                ],
+                "messages": [
+                    "To add an external profile, click the \"Manage Profiles\" button and select \"Add External Profile\".",
+                    "An external profile will remain in the same directory it was added from, allowing for profiles to be used from any location or drive."
+                ],
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "addNewProfile": {
+        "categories": ["profile"],
+        "description": "Add new profile",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-mgmt-menu",
+                    "#profile-mgmt-menu #profile-mgmt-new-profile-button",
+                    "#profile-mgmt-button"
+                ],
+                "messages": ["To add a new profile, click the \"Manage Profiles\" button and select \"New Profile\"."],
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "importProfile": {
+        "categories": ["profile"],
+        "description": "Import profile",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-mgmt-menu",
+                    "#profile-mgmt-menu #profile-mgmt-import-profile-button",
+                    "#profile-mgmt-button"
+                ],
+                "messages": [
+                    "To import an existing profile, click the \"Manage Profiles\" button and select \"Import Profile\".",
+                    "Importing a profile will create a new copy of the profile."
+                ],
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "exportProfile": {
+        "categories": ["profile"],
+        "description": "Export profile",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-mgmt-menu",
+                    "#profile-mgmt-menu #profile-mgmt-export-profile-button",
+                    "#profile-mgmt-button"
+                ],
+                "messages": [
+                    "To export the current profile, click the \"Manage Profiles\" button and select \"Export Profile\".",
+                    "Exported profiles will be removed from Stellar after successful export. A backup of the profile will be written to <b style='font-family: monospace'>[OS temp dir]/SML</b> before export."
+                ],
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "copyProfile": {
+        "categories": ["profile"],
+        "description": "Copy profile",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-mgmt-menu",
+                    "#profile-mgmt-menu #profile-mgmt-copy-profile-button",
+                    "#profile-mgmt-button"
+                ],
+                "messages": [
+                    "To copy the current profile to a new profile, click the \"Manage Profiles\" button and select \"Copy Profile\"."
+                ],
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "deleteProfile": {
+        "categories": ["profile"],
+        "description": "Delete profile",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-mgmt-menu",
+                    "#profile-mgmt-menu #profile-mgmt-delete-profile-button",
+                    "#profile-mgmt-button"
+                ],
+                "messages": [
+                    "To delete the current profile, click the \"Manage Profiles\" button and select \"Delete Profile\". <b>This cannot be undone.</b>"
+                ],
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-mgmt-button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "verifyProfile": {
+        "categories": ["profile"],
+        "description": "Verify profile",
+        "steps": [
+            {
+                "stepId": "step-verify-profile",
+                "elementSelectors": [
+                    "#mod-list-actions #verify-profile-button"
+                ],
+                "messages": [
+                    "You can verify this profile by clicking the \"Verify Profile\" button.",
+                    "<p>Verification will check the profile's settings and files to make sure that there are no issues.</p> <p>Any errors found during verification will be shown as an alert.</p>"
+                ],
+                "selectorMatch": "require_none"
+            }
+        ]
+    },
+    "lockProfile": {
+        "categories": ["profile"],
+        "description": "Lock profile",
+        "steps": [
+            {
+                "stepId": "step-lock-profile",
+                "elementSelectors": [
+                    "#mod-list-actions #lock-profile-button"
+                ],
+                "messages": [
+                    "<p>You can temporarily lock this profile by clicking the \"Lock Profile\" button.</p> <p>When a profile is locked you will not be able to make changes to it.</p>"
+                ],
+                "selectorMatch": "require_none"
+            }
+        ]
+    },
+    "profileSettings": {
+        "categories": ["profile"],
+        "description": "Profile settings",
+        "steps": [
+            {
+                "stepId": "step-profile-settings",
+                "elementSelectors": [
+                    "#mod-list-actions #profile-settings-button"
+                ],
+                "messages": [
+                    "You can view and change the profile's settings by clicking the \"Profile Settings\" button."
+                ],
+                "optional": true
+            }
+        ]
+    },
+    "baseProfileField": {
+        "categories": ["profile"],
+        "description": "Inherit base profile",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal",
+                "elementSelectors": [
+                    "#profile-settings-modal"
+                ],
+                "messages": [],
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "profile:settings",
+                            "data": {},
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "stepId": "step-base-profile-form-field",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-base-form-field"
+                ],
+                "description": "Base Profile",
+                "messages": ["<p>You can optionally pick a base profile to inherit from.</p><p>By default only base profiles from the current game are shown, but you can select any base profile by checkng <b>Show all profiles</b>.</p>"],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "profileGameInstallationSettings": {
+        "categories": ["profile"],
+        "description": "Game installations",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-panel",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel:not(.mat-expanded)"
+                ],
+                "description": "Game Installation Settings",
+                "messages": ["You can edit the game installation settings here."],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "& > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                },
+                "static": false
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-root-dir",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel .game-installation-root-dir"
+                ],
+                "description": "Game Root Directory",
+                "messages": ["The root directory for the game installation."],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-mod-dir",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel .game-installation-mod-dir"
+                ],
+                "description": "Game Data Directory",
+                "messages": [
+                    "The data directory for the game installation.",
+                    "<p>This may sometimes be the same as the root directory (in which case you can enter the value <span style='font-family:monospace'>.</span>).</p><p>For Bethesda games this is usually the <b>Data</b> folder.</p>"
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-config-dir",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel .game-installation-config-dir"
+                ],
+                "description": "Game Config Files Directory",
+                "messages": ["<p>The directory where the game's config files are located, if applicable. The location will vary by game.</p><p>For Bethesda games, this is located at <b>[YourUserDirectory]/Documents/My Games/[GameName]</b>.</p>"],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-saves-dir",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel .game-installation-saves-dir"
+                ],
+                "description": "Game Saves Directory",
+                "messages": ["<p>The directory where game save files are located. The location will vary by game.</p><p>For Bethesda games, this is located at <b>[YourUserDirectory]/Documents/My Games/[GameName]/Saves</b>.</p>"],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-plugin-list-path",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel .game-installation-plugin-list-path"
+                ],
+                "description": "Game Plugin List Path",
+                "messages": ["<p>The location where the plugin list should be saved, if applicable.</p><p>For Bethesda games, this is located at <b>[YourUserDirectory]/AppData/Local/[GameName]/plugins.txt</b>.</p>"],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-game-installation-settings-steam-ids",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-game-installation-settings-panel .game-install-steam-ids-form-field"
+                ],
+                "description": "Steam IDs",
+                "messages": [
+                    "The Steam IDs associated with this installation of the game, if any. This is only applicable if you're using a Steam version of the game."
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "profileProtonSettings": {
+        "categories": ["profile"],
+        "description": "Proton settings",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-proton-settings-panel",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-proton-settings-panel"
+                ],
+                "description": "Proton Settings",
+                "messages": ["You can set Proton settings here."],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&:not(.mat-expanded) > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                }
+            },
+            {
+                "stepId": "step-profile-proton-settings-version",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-proton-settings-panel #profile-proton-version mat-form-field"
+                ],
+                "description": "Proton Version",
+                "messages": [
+                    "The version of Proton to use when launching games with this profile."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-proton-settings-prefix-dir",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-proton-settings-panel #profile-path-proton-prefix"
+                ],
+                "description": "Proton Prefix Directory",
+                "messages": [
+                    "The Proton prefix directory to use for this profile. Defaults to game's Steam compatdata prefix if found, otherwise a new prefix will be created in the profile folder."
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "profilePathOverrides": {
+        "categories": ["profile"],
+        "description": "Profile path overrides",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-path-overrides-panel",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-overrides-panel"
+                ],
+                "description": "Profile Path Overrides",
+                "messages": ["You can optionally change the profile's default directories."],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&:not(.mat-expanded) > mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                }
+            },
+            {
+                "stepId": "step-profile-path-overrides-root",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-root-form-field"
+                ],
+                "description": "Profile Root Path",
+                "messages": [
+                    "The root directory is where the profile's data is stored. By default, profiles are stored in the profiles directory defined in the app preferences.",
+                    "Overriding this path will allow you to store the profile at an alternative location. This can be useful if your game is installed on a different drive and you want to co-locate the profile to the same drive as the game to enable Link mode."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-mods",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-mods-form-field"
+                ],
+                "description": "Profile Mods Path",
+                "messages": [
+                    "Overriding this path will allow you to store the profile's mods at an alternative location. By default, mods are stored in the profile's root directory under <b>mods</b>."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-saves",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-saves-form-field"
+                ],
+                "description": "Profile Saves Path",
+                "messages": [
+                    "Overriding this path will allow you to store the profile's game saves at an alternative location. By default, saves are stored in the profile's root directory under <b>save</b>.",
+                    "This can be useful if you are syncing game saves between multiple PCs or profiles."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-config",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-config-form-field"
+                ],
+                "description": "Profile Config Path",
+                "messages": [
+                    "Overriding this path will allow you to store the profile's config files at an alternative location. By default, saves are stored in the profile's root directory under <b>config</b>.",
+                    "This can be useful if you are syncing config files between multiple PCs or profiles."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-path-overrides-backups",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-backups-form-field"
+                ],
+                "description": "Profile Backups Path",
+                "messages": [
+                    "Overriding this path will allow you to store the profile's backup files at an alternative location. By default, saves are stored in the profile's root directory under <b>backups</b>."
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "linkMode": {
+        "categories": ["profile", "mods"],
+        "description": "Link mode",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-link-mode",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-mod-link-mode-checkbox"
+                ],
+                "messages": [
+                    "When Link Mode is enabled, file links to the mod files will be used instead of copying the files when activating the profile. This is significantly faster and uses less disk space. This setting is recommended to be enabled when possible.",
+                    "Link mode can also be separately enabled for config files and save files. To enable/disable link mode for config or save files, click the icon to the left of <b>Game Config Files Directory</b> or <b>Game Saves Directory</b>.",
+                    "Link mode can only be enabled if the profile is located on the same disk/partition as the game itself. You can change the profile's location by changing the <b>Profile Root Path</b> under <b>Path Overrides</b>."
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "profileManageConfigFiles": {
+        "categories": ["profile", "config"],
+        "description": "Profile config/INI files",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-manage-config-files",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-mod-config-mgmt-checkbox"
+                ],
+                "description": "Manage Config/INI Files",
+                "messages": [
+                    "If the Manage Config/INI Files option is enabled, new config files will be created for the profile. This requires the game installation to have a valid <b>Game Config Files Directory</b>.",
+                    "Upon first enabling the option, you will be prompted to copy the existing config files from the <b>Game Config Files Directory</b> to the profile's config files.",
+                    "<p>When activating mods, the profile's config files will be copied to the <b>Game Config Files Directory</b>.</p><p>If any existing config files are in the <b>Game Config Files Directory</b> when mods are activated, they will be moved to a <span style='font-family:monospace'>.sml.bak</span> folder during activation. The files moved to <span style='font-family:monospace'>.sml.bak</span> will be restored back to their original location upon deactivating mods.</p>"
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "profileManageSaveFiles": {
+        "categories": ["profile", "saves"],
+        "description": "Profile save files",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-manage-save-files",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-mod-save-mgmt-checkbox"
+                ],
+                "description": "Manage Save Files",
+                "messages": [
+                    "If save management is enabled, any game saves made while the profile is activated will be saved to the profile. These saves will only be visible in the game when the associated profile is activated.",
+                    "This requires the game installation to have a valid <b>Game Saves Directory</b>."
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "normalizePaths": {
+        "categories": ["profile", "mods"],
+        "description": "Normalize paths",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-path-case-normalization",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-path-case-normalization-checkbox"
+                ],
+                "description": "Normalize mod file paths",
+                "messages": [
+                    "Some mods may use different casing for their files/folders (i.e. \"Interface\" vs \"interface\") and this can cause issues on case-sensitive file systems (often used on Linux). When this setting is enabled, Stellar will automatically convert all activated mod files and folders to the correct case to avoid this issue.",
+                    "It is recommended to enable this setting when using a case-sensitive file system."
+                ]
+            }
+        ],
+        "static": false
+    },
+    "profileArchiveInvalidation": {
+        "categories": ["profile"],
+        "description": "Archive invalidation",
+        "steps": [
+            {
+                "stepId": "step-profile-open-settings-modal"
+            },
+            {
+                "stepId": "step-profile-archive-invalidation",
+                "elementSelectors": [
+                    "#profile-settings-modal #profile-archive-invalidation-checkbox"
+                ],
+                "description": "Archive Invalidation",
+                "messages": [
+                    "Archive invalidation is required in some games in order to load certain kinds of mods, like texture packs and mesh replacers. Enabling this is recommended.",
+                    "It is recommended to also enable the \"Manage Config/INI Files\" option. However if it is disabled, and existing config files can be located, archive invalidation can still be enabled."
+                ],
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "addMod": {
+        "categories": ["mods"],
+        "description": "Adding mods",
+        "steps": [
+            {
+                "stepId": "step-mod-menu-toggle",
+                "elementSelectors": ["#add-mod-menu-button"],
+                "messages": [],
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-add-mod",
+                "elementSelectors": [
+                    "#profile-add-mod-menu",
+                    "#profile-add-mod-menu #profile-add-mod-button",
+                    "#add-mod-menu-button"
+                ],
+                "messages": ["To add a new mod, click the <span class=\"mat-color-accent\" style=\"font-size: 1.8em; font-weight: 400; padding: 0 0.15rem\">+</span> button and select \"Add Mod\"."]
+            },
+            {
+                "stepId": "step-import-mod"
+            },
+            {
+                "stepId": "step-download-mod"
+            },
+            {
+                "stepId": "step-mod-menu-toggle"
+            },
+            {
+                "stepId": "step-mod-add-drag-drop",
+                "description": "Add Mods using Drag & Drop",
+                "messages": [
+                    "You can also add mods by dragging and dropping them into the app. You can drag and drop multiple mods to sequentially install them."
+                ]
+            }
+        ]
+    },
+    "importMod": {
+        "categories": ["mods"],
+        "description": "Importing mods",
+        "steps": [
+            {
+                "stepId": "step-mod-menu-toggle"
+            },
+            {
+                "stepId": "step-import-mod",
+                "elementSelectors": [
+                    "#profile-add-mod-menu",
+                    "#profile-add-mod-menu #profile-import-mod-button",
+                    "#add-mod-menu-button"
+                ],
+                "description": "Import Mod",
+                "messages": ["If you want to add a mod from a folder instead of an archive, click the <span class=\"mat-color-accent\" style=\"font-size: 1.8em; font-weight: 400; padding: 0 0.15rem\">+</span> button and select \"Import Mod\"."]
+            },
+            {
+                "stepId": "step-mod-menu-toggle"
+            }
+        ],
+        "static": false
+    },
+    "downloadMod": {
+        "categories": ["mods", "downloads"],
+        "description": "Downloading mods",
+        "steps": [
+            {
+                "stepId": "step-mod-menu-toggle"
+            },
+            {
+                "stepId": "step-download-mod",
+                "elementSelectors": [
+                    "#profile-add-mod-menu",
+                    "#profile-add-mod-menu #profile-download-mod-button",
+                    "#add-mod-menu-button"
+                ],
+                "description": "Download Mod",
+                "messages": ["To download a mod from a URL, click the <span class=\"mat-color-accent\" style=\"font-size: 1.8em; font-weight: 400; padding: 0 0.15rem\">+</span> button and select \"Download Mod\"."]
+            },
+            {
+                "stepId": "step-mod-menu-toggle"
+            }
+        ],
+        "static": false
+    },
+    "addRootMod": {
+        "categories": ["mods"],
+        "description": "Adding root mods",
+        "steps": [
+            {
+                "stepId": "step-root-mods",
+                "messages": ["<p>Root mods are mods that are deployed to the <b>Game Base Directory</b> instead of the <b>Mod Base Directory</b>.</p> <p>This allows for script extenders, DLSS injectors, ENBs, and other types of injectors to be managed as mods in your profile.</p>"],
+                "static": false
+            },
+            {
+                "stepId": "step-mod-menu-toggle"
+            },
+            {
+                "stepId": "step-add-root-mod",
+                "elementSelectors": [
+                    "#profile-add-mod-menu",
+                    "#add-mod-menu-button"
+                ],
+                "description": "Add Root Mod",
+                "messages": [
+                    "To add a new root mod, click the <span class=\"mat-color-accent\" style=\"font-size: 1.8em; font-weight: 400; padding: 0 0.15rem\">+</span> button and select \"Add Mod\".",
+                    "During installation, you will have the option to add the mod as a root mod."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-menu-toggle"
+            }
+        ]
+    },
+    "addModSection": {
+        "categories": ["mods"],
+        "description": "Mod section dividers",
+        "steps": [
+            {
+                "messages": ["You can create section dividers in your mod list to better keep mods organized."]
+            },
+            {
+                "stepId": "step-mod-menu-toggle"
+            },
+            {
+                "stepId": "step-add-mod-section",
+                "elementSelectors": [
+                    "#profile-add-mod-menu",
+                    "#profile-add-mod-menu #profile-add-mod-section-button",
+                    "#add-mod-menu-button"
+                ],
+                "description": "Add Mod Section",
+                "messages": [
+                    "To add a new section to the mod list, click the <span class=\"mat-color-accent\" style=\"font-size: 1.8em; font-weight: 400; padding: 0 0.15rem\">+</span> button and select \"Add Mod Section\"."
+                ]
+            },
+            {
+                "stepId": "step-mod-menu-toggle"
+            },
+            {
+                "messages": [
+                    "You can rename or delete a section divider by right clicking the section and selecting the desired option. All mods in a section can also be enabled or disabled.",
+                    "Mods can be easily moved between sections or to the top/bottom of a section by right clicking a mod and opening the Section menu."
+                ]
+            }
+        ]
+    },
+    "rootMods": {
+        "categories": ["mods"],
+        "description": "Root mods",
+        "steps": [
+            {
+                "stepId": "step-root-mods"
+            }
+        ]
+    },
+    "installingMods": {
+        "categories": ["mods"],
+        "description": "Installing mods",
+        "steps": [
+            {
+                "elementSelectors": [
+                    "#profile-add-mod-menu"
+                ],
+                "messages": [
+                    "To begin, choose a mod to add."
+                ],
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#mod-import-options-modal, #mod-installer-modal",
+                            "negate": true,
+                            "waitOn": false
+                        }
+                    ],
+                    "elementEvents": [
+                        {
+                            "selector": "#add-mod-menu-button",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal",
+                    "#mod-installer-modal"
+                ],
+                "messages": [],
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "&"
+                        }
+                    ]
+                },
+                "selectorMatch": "require_any"
+            },
+            {
+                "description": "Standard Installation",
+                "messages": [],
+                "optional": true,
+                "static": {
+                    "screenshot": "mod-add-1.png"
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .name-field"
+                ],
+                "description": "Mod Name",
+                "messages": [
+                    "You can adjust the mod name here."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .version-field"
+                ],
+                "description": "Mod Version",
+                "messages": [
+                    "You can set a version number here."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .root-mod-checkbox-field mat-checkbox"
+                ],
+                "description": "Root Mod",
+                "messages": [
+                    "You can install the mod as a root mod."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-root-mods",
+                "elementSelectors": [
+                    "#mod-import-options-modal .root-mod-checkbox-field mat-checkbox"
+                ],
+                "description": "Root Mod",
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .mod-file-tree-container"
+                ],
+                "description": "Mod Files",
+                "messages": [
+                    "You can add or remove mod files here. By default, all files from the mod will be added."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .mod-file-tree-container .node-checkbox"
+                ],
+                "messages": [
+                    "Use the checkboxes to keep or remove files and directories."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .mod-file-tree-container .root-dir-action"
+                ],
+                "messages": [
+                    "You can mark a directory as the <b>root data directory</b>. This will result in only the files inside this directory being added.",
+                    "Some mods may be packaged in a way that you need to adjust the root directory. For Bethesda games, you should set the <span style='font-family:monospace'>Data</span> directory as the root directory."
+                ],
+                "optional": true,
+                "allowInvisible": true,
+                "static": {
+                    "screenshot": "mod-add-2.png"
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .mod-file-tree-container .root-dir-action"
+                ],
+                "description": "Multiple mod root directories",
+                "messages": [
+                    "<p>Multiple directories can be marked as a root data directory if needed. This is useful for some mod formats like BAIN, where directories that start with numbered prefixes (<span style='font-family:monospace'>00</span>, <span style='font-family:monospace'>10</span>, <span style='font-family:monospace'>20</span>, etc) represent features that can be optionally installed.</p> <p>To choose which features are installed, mark the features you want to install as root data dirs. Only these features will be installed.</p>"
+                ],
+                "optional": true,
+                "allowInvisible": true,
+                "static": {
+                    "screenshot": "bain-1.png"
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .game-file-tree-container"
+                ],
+                "description": "Installation Directory",
+                "messages": [
+                    "<p>Some games will use multiple directories for mods. In this case, Stellar will attempt to figure out where to install mods if possible, but some mods may be packaged in a way where this is not possible.</p> <p>If Stellar cannot determine the installation directory, you will need to choose which folder to install the mod to.</p>",
+                    "If no folder is selected, the mod will be installed to the top level data (root) directory."
+                ],
+                "optional": true,
+                "static": {
+                    "screenshot": "mod-add-3.png"
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#mod-import-options-modal .node-toggle-button"
+                ],
+                "messages": [
+                    "Use the arrow buttons to view child directories."
+                ],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ]
+                },
+                "static": false
+            },
+            {
+                "description": "FOMOD Installation",
+                "messages": [
+                    "<p>Some mods are packaged with special metadata known as FOMOD that allows for customizing the installation through a guided flow.</p> <p>Stellar supports FOMOD and will automatically show the installation wizard for FOMOD-compatible mods.</p>"
+                ],
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#mod-installer-modal",
+                            "waitOn": false
+                        }
+                    ]
+                },
+                "static": {
+                    "screenshot": "fomod-1.png"
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#mod-installer-modal .install-stepper .mat-step"
+                ],
+                "messages": [
+                    "The installer will guide you through the installation of the mod."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#mod-installer-modal .install-stepper .plugin-group:not(:empty)"
+                ],
+                "messages": [
+                    "Hovering over or selecting an option will show information about what it does."
+                ],
+                "optional": true
+            },
+            {
+                "messages": [
+                    "Some mods will ask you if you are using Vortex or Mod Organizer 2. Stellar supports either option, but if you encounter any issues, select <b>Mod Organizer 2</b>.",
+                    "You can click the preview image (or the <b>?</b> tooltip in compact view) to show a fullscreen view of the image."
+                ],
+                "optional": true,
+                "initState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#mod-installer-modal",
+                            "waitOn": false
+                        }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#mod-installer-modal .install-step-actions"
+                ],
+                "messages": [
+                    "Use the <b>Next</b> and <b>Previous</b> buttons to navigate between install steps."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#mod-installer-modal .root-mod-checkbox-field mat-checkbox"
+                ],
+                "description": "Root Mod",
+                "messages": [
+                    "You can install the mod as a root mod."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-root-mods",
+                "elementSelectors": [
+                    "#mod-installer-modal .root-mod-checkbox-field mat-checkbox"
+                ],
+                "description": "Root Mod",
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#mod-installer-modal .manual-install-button"
+                ],
+                "messages": [
+                    "If you want to install the mod manually instead, you can click the <b>Manual Install</b> button at the bottom left corner of the installer window."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#mod-installer-modal .install-button"
+                ],
+                "messages": [
+                    "Once you have completed all required steps, click the <b>Install</b> button to install the mod."
+                ],
+                "optional": true
+            }
+        ]
+    },
+    "managingMods": {
+        "categories": ["mods"],
+        "description": "Managing your mods",
+        "steps": [
+            {
+                "elementSelectors": [
+                    ".mod-row.mod-entry",
+                    ".mod-row.mod-entry .mod-load-order"
+                ],
+                "messages": [
+                    "<p>Mods you have added will appear in your mods list with the load order of that mod shown to the right of its name.</p> <p>You can modify the load order of a mod by dragging and dropping it in the list.</p>"
+                ],
+                "optional": true,
+                "selectorMatch": "require_any"
+            },
+            {
+                "elementSelectors": [
+                    ".mod-row.mod-entry .mod-enabled"
+                ],
+                "messages": [
+                    "Unchecking a mod will disable it and make it inactive.",
+                    "Mods inherited from a base profile cannot be re-ordered or enabled/disabled."
+                ],
+                "optional": true,
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-open",
+                "elementSelectors": [
+                    ".mod-row.mod-entry"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "contextmenu"
+                        }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-mod-actions-modal",
+                "elementSelectors": [
+                    ".mod-context-menu-modal"
+                ],
+                "description": "Mod actions",
+                "messages": ["You can right click a mod to bring up additional actions, such as renaming or deleting."],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-show-in-explorer",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .show-in-explorer-button"
+                ],
+                "messages": [
+                    "You can browse the mod's files by clicking \"View in File Explorer\"."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-actions-modal-section",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .section-button"
+                ],
+                "messages": [
+                    "You can move mods within the current section under the \"Section\" menu."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-actions-modal-move-to-top",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .move-to-top-button"
+                ],
+                "messages": [
+                    "You can move a mod to the start of the load order by clicking \"Move to Top\"."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-actions-modal-move-to-bottom",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .move-to-bottom-button"
+                ],
+                "messages": [
+                    "You can move a mod to the end of the load order by clicking \"Move to Bottom\"."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-actions-modal-check-for-updates",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .check-for-updates-button"
+                ],
+                "messages": [
+                    "You can check for updates for a mod by clicking \"Check for Updates\". This is only available for mods from known sources."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-actions-modal-copy-url",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .copy-url-button"
+                ],
+                "messages": [
+                    "You can click \"Copy URL\" to copy the URL of the mod to your clipboard. This is only available mods downloaded through Stellar."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-actions-modal-rename",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .rename-button"
+                ],
+                "messages": [
+                    "You can rename a mod by clicking \"Rename mod\"."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-mod-actions-modal-delete",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .delete-button"
+                ],
+                "messages": [
+                    "You can delete a mod by clicking \"Delete mod\". This cannot be undone."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-close-active-overlay",
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": ".cdk-overlay-backdrop",
+                            "event": "click"
+                        }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    ".mod-list-table thead"
+                ],
+                "stepId": "step-customize-mod-list-columns",
+                "messages": ["You can customize which columns of the mods list are visible under the <b>View > Mod List Columns</b> section of the app menu bar."],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-external-files",
+                "static": false
+            },
+            {
+                "stepId": "step-mod-overwrite-enable",
+                "description": "Mod file overwrites",
+                "static": false
+            },
+            {
+                "stepId": "step-mod-overwrite-info",
+                "description": "Mod file overwrites",
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#mod-list-actions #add-mod-menu-button"
+                ],
+                "description": "Adding mods",
+                "messages": [
+                    "You can add a mod by clicking the \"Add Mod\" button."
+                ],
+                "optional": true,
+                "static": false
+            },
+            {
+                "stepId": "step-mod-order-backup-restore"
+            },
+            {
+                "stepId": "step-toggle-mod-order-backup-menu"
+            },
+            {
+                "stepId": "step-mod-order-backup"
+            },
+            {
+                "stepId": "step-mod-order-restore"
+            },
+            {
+                "stepId": "step-toggle-mod-order-backup-menu"
+            },
+            {
+                "elementSelectors": [
+                    "#mod-list-actions #explore-profile-mods-button"
+                ],
+                "description": "Explore mod files",
+                "messages": [
+                    "You can explore mod files for this profile by clicking the \"Explore Profile Mod Files\" button."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-verify-profile",
+                "description": "Verify profile",
+                "static": false
+            },
+            {
+                "stepId": "step-lock-profile",
+                "description": "Lock profile",
+                "static": false
+            },
+            {
+                "stepId": "step-profile-settings",
+                "description": "Profile settings",
+                "static": false
+            }
+        ]
+    },
+    "modActions": {
+        "categories": ["mods"],
+        "description": "Mod actions",
+        "steps": [
+            {
+                "stepId": "step-mod-actions-modal-open"
+            },
+            {
+                "stepId": "step-mod-actions-modal",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-show-in-explorer",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-section",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-move-to-top",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-move-to-bottom",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-check-for-updates",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-copy-url",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-rename",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-actions-modal-delete",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-close-active-overlay"
+            }
+        ],
+        "static": false
+    },
+    "modOrderBackupRestore": {
+        "categories": ["mods", "profile"],
+        "description": "Backup/restore mod order",
+        "steps": [
+            {
+                "stepId": "step-mod-order-backup-restore",
+                "elementSelectors": [
+                    "#mod-list-actions #mod-order-backup-menu-button"
+                ],
+                "description": "Backup/restore mod order",
+                "messages": [
+                    "You can backup and restore the mod load order using the buttons at the top of the mod list."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-toggle-mod-order-backup-menu",
+                "elementSelectors": [
+                    "#mod-list-actions #mod-order-backup-menu-button"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-mod-order-backup",
+                "elementSelectors": [
+                    "#mod-backup-menu #mod-create-backup-button"
+                ],
+                "messages": [
+                    "Clicking the \"Create Mod Order Backup\" button will allow you to create a new mod order backup."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-mod-order-restore",
+                "elementSelectors": [
+                    "#mod-backup-menu #mod-restore-backup-button"
+                ],
+                "messages": [
+                    "Clicking the \"Restore Mod Order Backup\" button will show a list of all available mod order backups that can be restored.",
+                    "Note that any mods in a backup that are not currently added to the profile will not be re-added."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-toggle-mod-order-backup-menu"
+            }
+        ],
+        "static": false
+    },
+    "externalFiles": {
+        "categories": ["mods"],
+        "description": "External files",
+        "steps": [
+            {
+                "stepId": "step-mod-external-files",
+                "elementSelectors": [
+                    ".mod-row[external-files='true'] .manual-mod-text"
+                ],
+                "messages": [
+                    "Existing game files and other files that have been manually copied to the <b>Mod Base Directory</b> outside of your profile will show up in the UI as External files.",
+                    "<p>When activating mods for a profile that overwrite external files, the original external files will be moved to a folder called <span style='font-family:monospace'>.sml.bak</span> while mods are activated.</p> <p>The files in the <span style='font-family:monospace'>.sml.bak</span> folder will be restored back to their original location upon deactivating mods.</p>"
+                ],
+                "selectorMatch": "require_none"
+            }
+        ]
+    },
+    "modFileOverwrite": {
+        "categories": ["mods"],
+        "description": "Mod file overwrite",
+        "steps": [
+            {
+                "stepId": "step-mod-overwrite-enable",
+                "elementSelectors": [
+                    ".mod-enable-overwrite-calculation-button"
+                ],
+                "messages": [
+                    "You can see which files are being overwritten by specific mods by enabling mod overwrite calculations.",
+                    "To enable mod overwrite calculations, click the file icon next to the <b>Mod Name header</b> in the mod list."
+                ]
+            },
+            {
+                "stepId": "step-mod-overwrite-info",
+                "elementSelectors": [
+                    ".mod-overwritten-files-button"
+                ],
+                "messages": [
+                    "Once overwrite calculations are enabled, file icons will be displayed next to mods that overwrite files from other mods or external files.",
+                    "Clicking the file icon will show the list of files that the mod is overwriting."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ]
+    },
+    "activateProfile": {
+        "categories": ["mods", "profile", "actions"],
+        "description": "Activate your mods",
+        "steps": [
+            {
+                "stepId": "step-activate-profile",
+                "elementSelectors": [
+                    "#profile-actions .mod-activate-button"
+                ],
+                "messages": [
+                    "To enable mods in the game you must first deploy your profile. Press the <b>Activate Profile</b> button in the <b>Actions</b> section to deploy the current profile.",
+                    "Mods will remain active until you click <b>Deactivate Profile</b> button, even if you close the app or restart your PC."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-activate-profile-note",
+                "elementSelectors": [
+                    "#profile-actions .mod-refresh-button"
+                ],
+                "messages": [
+                    "<p><b>IMPORTANT NOTE:</b> If <b>Link Mode</b> is not enabled for the profile and you update any of the profile's mod files externally (i.e. in a text editor) while mods are deployed, make sure to press the <b>Refresh Files</b> button after making your changes.</p> <p>Otherwise your changes will not be applied.</p>"
+                ]
+            }
+        ]
+    },
+    "checkForModUpdates": {
+        "categories": ["mods", "downloads"],
+        "description": "Updating mods",
+        "steps": [
+            {
+                "messages": [
+                    "You can check for updates for mods that have been downloaded through Stellar from a known source like Nexus Mods."
+                ]
+            },
+            {
+                "elementSelectors": [
+                    ".mod-row.mod-can-update-check"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": ".mod-version-check-dialog",
+                            "negate": true,
+                            "waitOn": false
+                        }
+                    ],
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "contextmenu"
+                        }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    ".mod-context-menu-modal .check-for-updates-button"
+                ],
+                "messages": [
+                    "To check for updates, right click a supported mod and click \"Check for Updates\"."
+                ],
+                "optional": true,
+                "selectorMatch": "require_none",
+                "enterState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": ".mod-version-check-dialog",
+                            "negate": true,
+                            "waitOn": false
+                        }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-open-check-for-mod-updates-modal",
+                "elementSelectors": [
+                    ".mod-context-menu-modal .check-for-updates-button"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    ".mod-version-check-dialog mat-card-header",
+                    ".mod-version-check-dialog"
+                ],
+                "messages": [
+                    "You can view all new versions of the mod and choose which version to install."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    ".mod-version-check-dialog table tr.mod-version-item"
+                ],
+                "messages": [
+                    "Each version's information is listed here."
+                ],
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    ".mod-version-check-dialog .view-changelog-button"
+                ],
+                "messages": [
+                    "You can also view the changelog for each version, if available."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    ".mod-version-check-dialog .mod-update-download-button"
+                ],
+                "messages": [
+                    "Click here to download the update."
+                ],
+                "optional": true,
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    ".mod-version-check-dialog .old-versions-button"
+                ],
+                "messages": [
+                    "You can view older versions of a mod by clicking the \"Show Old Versions\" button."
+                ],
+                "optional": true
+            }
+        ]
+    },
+    "plugins": {
+        "categories": ["plugins", "mods"],
+        "description": "Plugins list",
+        "steps": [
+            {
+                "stepId": "step-focus-plugins-list",
+                "elementSelectors": [
+                    "#plugins-list"
+                ],
+                "messages": [],
+                "optional": true,
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "profile:setActiveDataAction",
+                            "data": { "dataAction": "plugins" },
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#plugins-list .plugin-row",
+                    "#game-data-actions"
+                ],
+                "messages": [
+                    "Once at least one mod with a plugin has been installed, you will see your plugins listed along with their load order."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#plugins-list .plugin-row"
+                ],
+                "messages": [
+                    "<p>Plugins can be individually disabled or re-ordered by dragging and dropping them.</p> <p>Plugins inherited from a base profile cannot be re-ordered or enabled/disabled.</p>"
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-open-plugin-context-menu",
+                "elementSelectors": [
+                    "#plugins-list .plugin-row"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "contextmenu"
+                        }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-plugin-actions",
+                "elementSelectors": [
+                    ".plugin-context-menu"
+                ],
+                "description": "Plugin actions",
+                "messages": [
+                    "You can right click individual plugins to bring up additional options."
+                ],
+                "optional": true,
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-move-to-top",
+                "elementSelectors": [
+                    ".plugin-context-menu .move-to-top-button"
+                ],
+                "messages": [
+                    "You can move a plugin to the start of the load order by clicking \"Move to Top\"."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-plugin-move-to-bottom",
+                "elementSelectors": [
+                    ".plugin-context-menu .move-to-bottom-button"
+                ],
+                "messages": [
+                    "You can move a plugin to the end of the load order by clicking \"Move to Bottom\"."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-plugin-type-promotion",
+                "elementSelectors": [
+                    ".plugin-context-menu .plugin-type-select"
+                ],
+                "description": "Plugin type promotion",
+                "messages": [
+                    "Some games have rules regarding the load order of different types of plugins.",
+                    "<p>For Bethesda games, the order is generally <span style='font-family:monospace'>ESM -> ESL -> ESP</span>. However, mods sometimes contain ESP plugins that are \"flagged\" as ESM or ESL.</p> <p>While Stellar does not currently parse these flags, you can manually account for this by using plugin type promotion.</p>",
+                    "<p>To promote a plugin to a new type, right-click it and use the \"Plugin Type\" option to select the new plugin type.</p> <p>Once promoted, the plugin will behave as if it were of the promoted type.</p>"
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-close-active-overlay",
+                "optional": true
+            },
+            {
+                "stepId": "step-external-plugins",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-plugin-order-backup-restore",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-plugin-order-backup",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-plugin-order-restore",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-plugin-order-import",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-plugin-order-export",
+                "optional": true,
+                "selectorMatch": "require_all"
+            }
+        ]
+    },
+    "pluginActions": {
+        "categories": ["plugins"],
+        "description": "Plugin actions",
+        "steps": [
+            {
+                "stepId": "step-focus-plugins-list"
+            },
+            {
+                "stepId": "step-open-plugin-context-menu",
+                "optional": true
+            },
+            {
+                "stepId": "step-plugin-actions",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-move-to-top",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-move-to-bottom",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-type-promotion",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-close-active-overlay",
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "pluginTypePromotion": {
+        "categories": ["plugins"],
+        "description": "Plugin type promotion",
+        "steps": [
+            {
+                "stepId": "step-focus-plugins-list"
+            },
+            {
+                "stepId": "step-open-plugin-context-menu",
+                "optional": true
+            },
+            {
+                "stepId": "step-plugin-type-promotion",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-close-active-overlay",
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "externalPlugins": {
+        "categories": ["plugins"],
+        "description": "External plugins",
+        "steps": [
+            {
+                "stepId": "step-focus-plugins-list"
+            },
+            {
+                "stepId": "step-external-plugins",
+                "elementSelectors": [
+                    "#plugins-list #external-plugin-mgmt-button"
+                ],
+                "description": "External plugins",
+                "messages": [
+                    "External game plugin management is optional for some games and is required for others. For games where external plugin management is optional, it can be enabled or disabled by pressing the \"Manage External Plugins\" button at the top left of the plugins list.",
+                    "When enabled, all external game plugin files will be shown in the list and can be re-ordered alongside profile-managed plugins."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    },
+    "pluginBackupRestore": {
+        "categories": ["plugins"],
+        "description": "Backup/restore plugin order",
+        "steps": [
+            {
+                "stepId": "step-focus-plugins-list"
+            },
+            {
+                "stepId": "step-plugin-order-backup-restore",
+                "elementSelectors": [
+                    "#game-data-action-header-buttons"
+                ],
+                "description": "Backup/restore plugin order",
+                "messages": [
+                    "You can backup and restore the plugin load order using the buttons at the top right of the plugins list."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-order-backup",
+                "elementSelectors": [
+                    "#game-data-action-header-buttons #plugin-backup-button"
+                ],
+                "messages": [
+                    "Selecting the \"Create Plugin Backup\" option will allow you to create a new plugin order backup."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-order-restore",
+                "elementSelectors": [
+                    ".select-header-buttons #plugin-restore-backup-menu-button"
+                ],
+                "messages": [
+                    "Selecting the \"Restore Plugin Backup\" option will show a list of all available plugin order backups that can be restored.",
+                    "Note that any plugins in a backup that are not currently in the active plugin list will not be re-added."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-order-import",
+                "elementSelectors": [
+                    "#game-data-action-header-buttons #plugin-import-backup-button"
+                ],
+                "messages": [
+                    "If you want to import a plugin order backup from another profile, use the \"Import Plugin Backup\" button."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-plugin-order-export",
+                "elementSelectors": [
+                    "#game-data-action-header-buttons #plugin-export-backup-button"
+                ],
+                "messages": [
+                    "You can also export the plugin order in a plugins.txt-compatible format using the \"Export Plugins List\" button."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    },
+    "configFileManagement": {
+        "categories": ["config", "profile"],
+        "description": "Config file management",
+        "steps": [
+            {
+                "stepId": "step-focus-config-editor",
+                "elementSelectors": [
+                    "#config-editor"
+                ],
+                "messages": [],
+                "optional": true,
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "profile:setActiveDataAction",
+                            "data": { "dataAction": "config" },
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #data-actions-type"
+                ],
+                "messages": [
+                    "If you have enabled the <b>Manage Config/INI Files</b> option for your profile, you can select the \"Config\" option from the dropdown near the top right area of the app."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #config-editor .config-file-editor"
+                ],
+                "messages": [
+                    "From this section you can edit your profile-specific config/INI files."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #config-editor .config-file-list-form-field mat-select"
+                ],
+                "messages": [
+                    "You can browse the config files for the profile by selecting them from the dropdown."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #config-editor .config-save-button"
+                ],
+                "messages": [
+                    "Click the \"Save\" button to save any changes."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #config-editor .config-reload-button"
+                ],
+                "messages": [
+                    "You can reload the config file in case changes were made externally by clicking the \"Reload file contents\" button."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #config-editor .config-open-file-button"
+                ],
+                "messages": [
+                    "You can open the config file in an external editor by clicking the \"Open in external editor\" button."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #config-editor .config-delete-file-button"
+                ],
+                "messages": [
+                    "You can also delete config files from the profile."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-config-backup-restore",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-config-backup",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-config-restore",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-action-header-buttons #config-open-folder-button"
+                ],
+                "description": "Explore config files",
+                "messages": [
+                    "You can explore the profile's config file folder by clicking the \"Open Profile Config Folder\" button."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-actions-external-config-files",
+                "optional": true
+            }
+        ]
+    },
+    "configBackupRestore": {
+        "categories": ["config", "profile"],
+        "description": "Backup/restore config files",
+        "steps": [
+            {
+                "stepId": "step-focus-config-editor"
+            },
+            {
+                "stepId": "step-config-backup-restore",
+                "elementSelectors": [
+                    "#game-data-action-header-buttons"
+                ],
+                "description": "Backup/restore config files",
+                "messages": [
+                    "You can backup and restore the current config file values using the buttons at the top right of the Config editor."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-config-backup",
+                "elementSelectors": [
+                    "#game-data-action-header-buttons #config-backup-button"
+                ],
+                "messages": [
+                    "Selecting the \"Create Config Backup\" option will allow you to create a new config file backup."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-config-restore",
+                "elementSelectors": [
+                    "#game-data-action-header-buttons #config-restore-backup-menu-button"
+                ],
+                "messages": [
+                    "Selecting the \"Restore Config Backup\" option will show a list of all available config file backups that can be restored."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    },
+    "saveManagement": {
+        "categories": ["saves", "profile"],
+        "description": "Save file management",
+        "steps": [
+            {
+                "stepId": "step-focus-saves-list",
+                "elementSelectors": [
+                    "#saves-list"
+                ],
+                "messages": [],
+                "optional": true,
+                "initState": {
+                    "appMessages": [
+                        {
+                            "id": "profile:setActiveDataAction",
+                            "data": { "dataAction": "saves" },
+                            "source": "main"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #data-actions-type"
+                ],
+                "messages": [
+                    "If you have enabled the <b>Manage Save Files</b> option for your profile, you can select the \"Saves\" option from the dropdown near the top right area of the app."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #saves-list"
+                ],
+                "messages": [
+                    "From this section you can manage your profile-specific save files."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #saves-list .save-item"
+                ],
+                "messages": [
+                    "You can view details about each save game managed by this profile."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #saves-list .save-item .save-delete-button"
+                ],
+                "messages": [
+                    "You can delete saves by clicking the delete button."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #saves-refresh-button"
+                ],
+                "messages": [
+                    "Use the \"Refresh Files\" button to refresh the list."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#game-data-actions #saves-open-folder-button"
+                ],
+                "messages": [
+                    "You can explore the profile's saves folder by clicking the \"Open Profile Saves Folder\" button."
+                ],
+                "optional": true
+            }
+        ]
+    },
+    "launchGame": {
+        "categories": ["actions", "profile"],
+        "description": "Launching the game",
+        "steps": [
+            {
+                "stepId": "step-launch-game-button",
+                "elementSelectors": [
+                    "#profile-actions .game-action-button"
+                ],
+                "messages": [
+                    "You can either click the <b>Start Game</b> button or simply launch the game directly through Steam, Game Pass, etc. The game should launch with your mods enabled!"
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-open-profile-actions-panel",
+                "elementSelectors": [
+                    "#profile-actions #game-action-list-button"
+                ],
+                "messages": [],
+                "initState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#profile-actions:not(.mat-expanded) mat-expansion-panel-header",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                },
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-action-runners",
+                "elementSelectors": [
+                    "#profile-actions #game-action-runner-button"
+                ],
+                "description": "Action runners",
+                "messages": [
+                    "Some game actions can be run with different launchers. If an action has multiple available runners, you can change which runner to use from the menu to the left of the button."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-additional-profile-actions",
+                "elementSelectors": [
+                    "#profile-actions #game-action-list-button"
+                ],
+                "description": "Additional launch actions",
+                "messages": [
+                    "Some games and script extenders may have additional launch options. These will appear in the dropdown to the right of the button.",
+                    "From here you can select which game action to launch."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ]
+    },
+    "customProfileActions": {
+        "categories": ["actions", "profile"],
+        "description": "Custom actions",
+        "steps": [
+            {
+                "stepId": "step-open-profile-actions-panel",
+                "enterState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#custom-game-action-dialog-modal",
+                            "negate": true,
+                            "waitOn": false
+                        }
+                    ]
+                },
+                "optional": true
+            },
+            {
+                "stepId": "step-open-action-list-menu",
+                "elementSelectors": [
+                    "#profile-actions #game-action-list-button"
+                ],
+                "messages": [],
+                "enterState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#custom-game-action-dialog-modal",
+                            "negate": true,
+                            "waitOn": false
+                        }
+                    ],
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 100
+                },
+                "optional": true
+            },
+            {
+                "stepId": "step-add-custom-action",
+                "elementSelectors": [
+                    ".game-actions-popup #add-custom-game-action-button",
+                    "#profile-actions #game-action-list-button"
+                ],
+                "description": "Adding custom actions",
+                "messages": [
+                    "Custom actions can be added by clicking the dropdown arrow to the right of the launch action button (<b>Start Game</b>) and clicking <b>New Action</b>."
+                ],
+                "optional": true,
+                "selectorMatch": "require_none",
+                "enterState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#custom-game-action-dialog-modal",
+                            "negate": true,
+                            "waitOn": false
+                        }
+                    ]
+                }
+            },
+            {
+                "elementSelectors": [
+                    ".game-actions-popup #add-custom-game-action-button"
+                ],
+                "messages": [],
+                "enterState": {
+                    "prerequisiteElementStates": [
+                        {
+                            "selector": "#custom-game-action-dialog-modal",
+                            "negate": true,
+                            "waitOn": false
+                        }
+                    ],
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 100
+                },
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal #game-action-name-form-field"
+                ],
+                "description": "Action name",
+                "messages": [
+                    "You must give the action a name."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-action-runner-type-select",
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal #game-action-runner-form-field"
+                ],
+                "description": "Action runner type",
+                "messages": [
+                    "Choose what kind of action to create."
+                ],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "#game-action-runner-select",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "stepId": "step-action-runner-type-default",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-action-runner-type-steam",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-action-runner-type-steam-launch-wrapper",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-action-runner-type-umu-launcher",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-close-action-runner-type-select",
+                "elementSelectors": [
+                    ".action-runner-type[option-active]"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal #game-action-proton-path-form-field mat-form-field"
+                ],
+                "description": "Proton Version Override",
+                "messages": [
+                    "For actions that use Proton, use can have this action use a specific Proton version."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal #game-action-data[action-runner=\"default\"]",
+                    "#custom-game-action-dialog-modal #game-action-data[action-runner=\"steam-launch-wrapper\"]",
+                    "#custom-game-action-dialog-modal #game-action-data[action-runner=\"umu-launcher\"]"
+                ],
+                "description": "Command",
+                "messages": [
+                    "Enter the program or script to run."
+                ],
+                "optional": true,
+                "selectorMatch": "require_any",
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal #game-action-data[action-runner=\"steam\"]"
+                ],
+                "description": "Steam App ID",
+                "messages": [
+                    "Enter the Steam App ID to run."
+                ],
+                "optional": true,
+                "selectorMatch": "require_any",
+                "static": false
+            },
+            {
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal .environment-editor"
+                ],
+                "description": "Environment Variables",
+                "messages": [
+                    "You can add environment variables to command-based actions."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal .show-macros-button"
+                ],
+                "description": "Macros",
+                "messages": [
+                    "Click the \"Show Macros\" button to view available macros."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-export-action-to-steam",
+                "selectorMatch": "require_all",
+                "static": false
+            }
+        ]
+    },
+    "profileActionRunnerTypes": {
+        "categories": ["actions"],
+        "description": "Action runner types",
+        "steps": [
+            {
+                "stepId": "step-profile-action-runners",
+                "elementSelectors": []
+            },
+            {
+                "stepId": "step-action-runner-type-select",
+                "optional": true
+            },
+            {
+                "stepId": "step-action-runner-type-default"
+            },
+            {
+                "stepId": "step-action-runner-type-steam"
+            },
+            {
+                "stepId": "step-action-runner-type-steam-launch-wrapper"
+            },
+            {
+                "stepId": "step-action-runner-type-umu-launcher"
+            },
+            {
+                "stepId": "step-close-action-runner-type-select",
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "profileActionRunnerTypeDefault": {
+        "categories": ["actions"],
+        "description": "Action: Run",
+        "steps": [
+            {
+                "stepId": "step-action-runner-type-default",
+                "elementSelectors": [
+                    ".action-runner-type#default"
+                ],
+                "description": "Run",
+                "messages": [
+                    "Runs a script or executable, can include arguments and environment variables."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    },
+    "profileActionRunnerTypeSteam": {
+        "categories": ["actions"],
+        "description": "Action: Steam",
+        "steps": [
+            {
+                "stepId": "step-action-runner-type-steam",
+                "elementSelectors": [
+                    ".action-runner-type#steam"
+                ],
+                "description": "Steam",
+                "messages": [
+                    "Launches an app or shortcut from Steam using its Steam App ID.",
+                    "One way the Steam App ID can be found by adding a desktop shortcut for the app in Steam and then inspecting the shortcut file. The shortcut will have an argument in the format of <span style='font-family:monospace'>steam://rungameid/13109217361204871168</span> where the App ID is the number at the end."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    },
+    "profileActionRunnerTypeSteamLaunchWrapper": {
+        "categories": ["actions"],
+        "description": "Action: steam-launch-wrapper",
+        "steps": [
+            {
+                "stepId": "step-action-runner-type-steam-launch-wrapper",
+                "elementSelectors": [
+                    ".action-runner-type#steam-launch-wrapper"
+                ],
+                "description": "steam-launch-wrapper",
+                "messages": [
+                    "<p>(Linux) Launches a script or executable using <span style='font-family:monospace'>steam-launch-wrapper</span> to invoke Proton.</p> <p>Steam must be installed on your system.</p>"
+                ],
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    },
+    "profileActionRunnerTypeUmuLauncher": {
+        "categories": ["actions"],
+        "description": "Action: umu-launcher",
+        "steps": [
+            {
+                "stepId": "step-action-runner-type-umu-launcher",
+                "elementSelectors": [
+                    ".action-runner-type#umu-launcher"
+                ],
+                "description": "umu-launcher",
+                "messages": [
+                    "<p>(Linux) Launches a script or executable using <a class='mat-color-accent' target='_blank' href='https://www.github.com/Open-Wine-Components/umu-launcher'><span style='font-family:monospace'>umu-launcher</span></a> to invoke Proton.</p> </p><span style='font-family:monospace'>umu-launcher</span> must be installed on your system."
+                ],
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    },
+    "profileActions": {
+        "categories": ["actions"],
+        "description": "Actions",
+        "steps": [
+            {
+                "stepId": "step-open-profile-actions-panel",
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-actions mat-expansion-panel-header",
+                    "#profile-actions"
+                ],
+                "messages": [
+                    "Actions, such as activating your profile and launching the game, are listed in the <b>Actions</b> panel."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-activate-profile",
+                "description": "Activate Profile",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-activate-profile-note",
+                "description": "Activate Profile",
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#profile-actions #profile-dir-view-button"
+                ],
+                "description": "Profile Folders",
+                "messages": [
+                    "You can browse your profile by clicking the \"Profile Folders\" button."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#profile-actions #mod-dir-view-button"
+                ],
+                "description": "Game Folders",
+                "messages": [
+                    "You can browse game folders by clicking the \"Game Folders\" button."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-actions-external-config-files",
+                "elementSelectors": [
+                    "#profile-actions #game-config-button"
+                ],
+                "description": "External config files",
+                "messages": [
+                    "If profile-managed config/INI files are disabled, you will see an option in <b>Actions</b> to view external game config files."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-actions #mod-status"
+                ],
+                "description": "Mod status",
+                "messages": [
+                    "You can see if your mods are active here. This will also tell if you if mods from another profile are enabled for the current game."
+                ],
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-actions .game-action-button"
+                ],
+                "description": "Running actions",
+                "messages": [
+                    "The currently selected action is shown here. Click this button to run the action.",
+                    "By default, you will see an action to launch the game."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-open-profile-actions-panel",
+                "optional": true
+            },
+            {
+                "stepId": "step-profile-action-runners",
+                "optional": true,
+                "selectorMatch": "require_all"
+            },
+            {
+                "stepId": "step-additional-profile-actions",
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#profile-actions #game-action-list-button"
+                ],
+                "messages": [
+                    "You can also create custom actions and modify existing actions."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-open-action-list-menu",
+                "optional": true
+            },
+            {
+                "stepId": "step-add-custom-action",
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    ".game-actions-popup .game-action-edit"
+                ],
+                "description": "Edit existing actions",
+                "messages": [
+                    "You can also edit an existing action by clicking the <b>Edit</b> button (gear icon) next to the action."
+                ],
+                "optional": true,
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-open-action-list-menu",
+                "optional": true
+            }
+        ],
+        "static": false
+    },
+    "exportActionToSteam": {
+        "categories": ["actions"],
+        "description": "Add action to Steam",
+        "steps": [
+            {
+                "messages": ["You can export custom actions to your Steam Library. "]
+            },
+            {
+                "stepId": "step-open-action-list-menu",
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    ".game-actions-popup .custom-game-action .game-action-edit"
+                ],
+                "messages": [
+                    "Click the dropdown arrow to the right of the launch action button and click the gear icon next to a custom action."
+                ],
+                "optional": true,
+                "selectorMatch": "require_none",
+                "leaveState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 100
+                }
+            },
+            {
+                "stepId": "step-export-action-to-steam",
+                "elementSelectors": [
+                    "#custom-game-action-dialog-modal .export-to-steam-button"
+                ],
+                "messages": [
+                    "Click the <b>Create Steam shortcut</b> button at the top right of the action settings window to create the current action as a shortcut in your Steam library."
+                ],
+                "optional": true,
+                "selectorMatch": "require_none"
+            }
+        ]
+    },
+    "downloadQueue": {
+        "categories": ["downloads"],
+        "description": "Download queue",
+        "steps": [
+            {
+                "stepId": "step-expand-download-queue",
+                "elementSelectors": [
+                    "#profile-downloads:not(.mat-expanded) mat-expansion-panel-header"
+                ],
+                "messages": [],
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "&",
+                            "event": "click"
+                        }
+                    ],
+                    "delay": 500
+                },
+                "optional": true
+            },
+            {
+                "elementSelectors": [
+                    "#profile-downloads mat-expansion-panel-header",
+                    "#profile-downloads"
+                ],
+                "messages": [
+                    "The download queue allows you to manage your mod downloads."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#profile-downloads .download-queue-item"
+                ],
+                "messages": [
+                    "You can view information about each download. Download progress is shown for active downloads."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-downloads-auto-install",
+                "elementSelectors": [
+                    "#profile-downloads #downloads-auto-install-button"
+                ],
+                "messages": [
+                    "You can use the <b>Auto-install downloads</b> button to control whether or not downloaded mods are auto-intalled as they are downloaded."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "elementSelectors": [
+                    "#profile-downloads #downloads-explore-button"
+                ],
+                "messages": [
+                    "You can use the <b>Show Downloads Folder</b> button to view download files for this profile."
+                ],
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-download-actions",
+                "elementSelectors": [
+                    "#profile-downloads .download-queue-item .download-actions"
+                ],
+                "description": "Download Actions",
+                "messages": [
+                    "Click the <b>Actions</b> icon (three dots) to the left of a download to view the available actions."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-first-download-action-menu-toggle",
+                "elementSelectors": [
+                    "#profile-downloads .download-queue-item .download-actions"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "& button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-download-actions-install",
+                "elementSelectors": [
+                    ".download-actions-modal .download-install-button"
+                ],
+                "description": "Install",
+                "messages": [
+                    "Begins mod installation for a completed download."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-download-actions-show-in-folder",
+                "elementSelectors": [
+                    ".download-actions-modal .download-show-folder-button"
+                ],
+                "description": "Show in Folder",
+                "messages": [
+                    "Shows the download in the file explorer."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-download-actions-cancel",
+                "elementSelectors": [
+                    ".download-actions-modal .download-cancel-button"
+                ],
+                "description": "Cancel",
+                "messages": [
+                    "Cancels pending or active downloads."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-download-actions-delete",
+                "elementSelectors": [
+                    ".download-actions-modal .download-delete-button"
+                ],
+                "description": "Delete",
+                "messages": [
+                    "Removes and deletes the download."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-download-actions-retry",
+                "elementSelectors": [
+                    ".download-actions-modal .download-retry-button"
+                ],
+                "description": "Retry",
+                "messages": [
+                    "Retry a failed download."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-download-actions-clear",
+                "elementSelectors": [
+                    ".download-actions-modal .download-clear-button"
+                ],
+                "description": "Clear",
+                "messages": [
+                    "Removes a failed download."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-first-download-action-menu-toggle"
+            },
+            {
+                "stepId": "step-bulk-download-actions",
+                "elementSelectors": [
+                    "#profile-downloads .global-download-actions"
+                ],
+                "description": "Bulk download actions",
+                "messages": [
+                    "Click the <b>Bulk Actions</b> icon at the top left of the download queue to view all bulk actions."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-bulk-download-action-menu-toggle",
+                "elementSelectors": [
+                    "#profile-downloads .global-download-actions"
+                ],
+                "messages": [],
+                "optional": true,
+                "enterState": {
+                    "elementEvents": [
+                        {
+                            "selector": "& button",
+                            "event": "click"
+                        }
+                    ]
+                }
+            },
+            {
+                "stepId": "step-delete-completed-downloads",
+                "elementSelectors": [
+                    ".global-downloads-context-menu .delete-completed-downloads-button"
+                ],
+                "description": "Delete Completed Downloads",
+                "messages": [
+                    "This action will delete all downloads that have been completed. This cannot be undone."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-delete-all-downloads",
+                "elementSelectors": [
+                    ".global-downloads-context-menu .delete-all-downloads-button"
+                ],
+                "description": "Delete All Downloads",
+                "messages": [
+                    "This action will delete all downloads regardless of status. This cannot be undone."
+                ],
+                "optional": true
+            },
+            {
+                "stepId": "step-bulk-download-action-menu-toggle"
+            },
+            {
+                "stepId": "step-sort-downloads",
+                "elementSelectors": [
+                    "#profile-downloads .downloads-header th .mat-sort-header-content"
+                ],
+                "description": "Sorting downloads",
+                "messages": [
+                    "You can change the sort order of the downloads in the queue by clicking any of the header labels."
+                ],
+                "optional": true
+            }
+        ]
+    },
+    "downloadActions": {
+        "categories": ["downloads"],
+        "description": "Download actions",
+        "steps": [
+            {
+                "stepId": "step-expand-download-queue",
+                "optional": true
+            },
+            {
+                "stepId": "step-download-actions",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-first-download-action-menu-toggle"
+            },
+            {
+                "stepId": "step-download-actions-install",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-download-actions-show-in-folder",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-download-actions-cancel",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-download-actions-delete",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-download-actions-retry",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-download-actions-clear",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-first-download-action-menu-toggle"
+            }
+        ],
+        "static": false
+    },
+    "bulkDownloadActions": {
+        "categories": ["downloads"],
+        "description": "Bulk download actions",
+        "steps": [
+            {
+                "stepId": "step-expand-download-queue",
+                "optional": true
+            },
+            {
+                "stepId": "step-bulk-download-actions",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-bulk-download-action-menu-toggle"
+            },
+            {
+                "stepId": "step-delete-completed-downloads",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-delete-all-downloads",
+                "selectorMatch": "require_none"
+            },
+            {
+                "stepId": "step-bulk-download-action-menu-toggle"
+            }
+        ],
+        "static": false
+    },
+    "autoInstallDownloads": {
+        "categories": ["downloads"],
+        "description": "Auto-install downloads",
+        "steps": [
+            {
+                "stepId": "step-expand-download-queue",
+                "optional": true
+            },
+            {
+                "stepId": "step-downloads-auto-install",
+                "selectorMatch": "require_none"
+            }
+        ],
+        "static": false
+    }
+}

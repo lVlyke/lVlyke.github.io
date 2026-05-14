@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Skyrim SE",
+        "configFilePaths": [
+            "config/Skyrim.ini",
+            "config/SkyrimCustom.ini",
+            "config/SkyrimPrefs.ini"
+        ]
+    }
+]

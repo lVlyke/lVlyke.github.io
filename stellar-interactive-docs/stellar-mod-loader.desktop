@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Stellar Mod Loader
+Comment=Manage your game mods
+GenericName=Stellar
+Exec=stellar-mod-loader %u
+Icon=./public/favicon.png
+Type=Application
+StartupNotify=true
+Categories=Game;X-GameTool
