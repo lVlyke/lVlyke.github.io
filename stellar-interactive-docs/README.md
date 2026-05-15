@@ -52,7 +52,7 @@ To install Stellar, simply download the latest release from the [releases page](
 
 There are a few different ways to learn how to use Stellar:
 * View the guided in-app help in Stellar itself under **Help > Show Help Topics**.
-* You can also view the in-app help [directly in your browser](TODO).
+* You can also view the in-app help [directly in your browser](https://lvlyke.github.io/stellar-interactive-docs).
 * Or you can read the [usage guide](/docs/usage-guide.md).
 
 # Troubleshooting
